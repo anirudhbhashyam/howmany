@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+shopt -s extglob nullglob
+
+PATH=$(realpath ${1:?Error the path is required.})
+GLOB_STR=${2:-*.pdb}
+
+files=($PATH/$GLOB_STR)
+
+echo "Found ${#files[@]} files matching ${GLOB_STR}."
