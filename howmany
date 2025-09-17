@@ -7,4 +7,4 @@ GLOB_STR=${2:-*.pdb}
 
 files=($PATH/$GLOB_STR)
 
-echo "Found ${#files[@]} files matching ${GLOB_STR}."
+echo -e "Found \e[36m${#files[@]} files\e[0m matching \e[32m${GLOB_STR}\e[0m."
