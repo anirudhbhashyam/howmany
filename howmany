@@ -6,7 +6,7 @@ shopt -s extglob nullglob
 
 PATH=$(realpath "${1:?Error the path is required.}")
 if [[ ! -d ${PATH} || ! -e ${PATH} ]]; then
-    echo "Error: ${PATH} is not a directory or does not exist."
+    echo -e "\e[31mError: \e[0m${PATH} is not a directory or does not exist."
     exit 1
 fi
 GLOB_STR=${2:-*.pdb}
