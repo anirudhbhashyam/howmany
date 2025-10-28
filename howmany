@@ -4,7 +4,11 @@ set -e
 
 shopt -s extglob nullglob
 
-PATH=$(realpath ${1:?Error the path is required.})
+PATH=$(realpath "${1:?Error the path is required.}")
+if [[ ! -d ${PATH} || ! -e ${PATH} ]]; then
+    echo "Error: ${PATH} is not a directory or does not exist."
+    exit 1
+fi
 GLOB_STR=${2:-*.pdb}
 
 files=($PATH/$GLOB_STR)
